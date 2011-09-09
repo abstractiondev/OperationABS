@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,15 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Operation\DesignDocumentation_v1_0.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DesignDocumentation_v1_0.html</LastGenOutput>
-    </None>
-    <None Include="Operation\CSharpCode_v1_0.designer.cs">
+    <Compile Include="Operation\CSharpCode_v1_0.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CSharpCode_v1_0.tt</DependentUpon>
-    </None>
+    </Compile>
     <Compile Include="Operation\Operation_v1_0_namespace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,20 +64,12 @@
       <LastGenOutput>Operation_v1_0.tt</LastGenOutput>
     </None>
     <None Include="Operation\CSharpCode_v1_0.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CSharpCode_v1_0.designer.cs</LastGenOutput>
+      <TransformOnBuild>True</TransformOnBuild>
     </None>
     <None Include="Operation\Operation_v1_0.ttinclude" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Operation\Content_v1_0\OperationContent_v1_0.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Operation\DesignDocumentation_v1_0.html">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DesignDocumentation_v1_0.tt</DependentUpon>
-    </Content>
+    <None Include="Operation\Operation_v1_0_namespace.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
