@@ -87,6 +87,9 @@ This information is effectively used to generate the documentation and reports t
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Parameters" type="ParametersType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Operation's parameters.</xs:documentation>
+				</xs:annotation>
 				<xs:key name="PKOperationParameter">
 					<xs:selector xpath="Parameter"/>
 					<xs:field xpath="@name"/>
