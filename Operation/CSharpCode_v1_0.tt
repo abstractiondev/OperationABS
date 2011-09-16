@@ -13,12 +13,11 @@
 <#@ import namespace="System.Xml.Linq" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #> 
-<#@ include file="..\Common\CommonCodeblocks.ttinclude" #>
+<#@ include file="..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude" #>
 <#@ include file="Operation_v1_0_namespace.ttinclude" #>
 <#   
-	string templateDirectoryName = Path.GetDirectoryName(Host.TemplateFile);
-	string directoryName = templateDirectoryName + @"\Content_v1_0";
-	directoryName = directoryName.Replace("OperationABS", "AbstractionContent");
+	string directoryName = GetContentDirectoryFromTemplateFullPath(Host.TemplateFile, IsLocal == false);
+	
 	string[] xmlFileNames = Directory.GetFiles(directoryName, "*.xml");
 
 	#>
