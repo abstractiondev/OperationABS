@@ -38,6 +38,14 @@ using System;
 	}
 #>
 <#+ 
+
+	Operation_v1_0.OperationAbstractionType CurrentAbstraction;
+	
+	void SetCurrentAbstraction(object abs)
+	{
+		CurrentAbstraction = (Operation_v1_0.OperationAbstractionType) abs;
+	}
+
 	#region Class Level Variable Block
 	
 	//CQRS_v1_0.DomainType CurrentDomain;
