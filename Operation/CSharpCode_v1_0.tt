@@ -1,5 +1,5 @@
 ﻿<#@ template debug="true" hostSpecific="true" #>
-<#@ output extension=".designer.cs" #>
+<#@ output extension="?" #>
 <#@ Assembly Name="System.Core.dll" #>
 <#@ Assembly Name="System.Xml.dll" #>
 <#@ Assembly Name="System.Xml.Linq.dll" #>
@@ -16,46 +16,39 @@
 <#@ include file="..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude" #>
 <#@ include file="Operation_v1_0_namespace.ttinclude" #>
 <#   
-	string directoryName = GetContentDirectoryFromTemplateFullPath(Host.TemplateFile, IsLocal == false);
-	
-	string[] xmlFileNames = Directory.GetFiles(directoryName, "*.xml");
-
-	#>
-using System;
-
-	<#
-	
-	foreach(string xmlFileName in xmlFileNames)
-	{
-		Operation_v1_0.OperationAbstractionType abstraction = LoadXml<Operation_v1_0.OperationAbstractionType>(xmlFileName);
-		Operation_v1_0.OperationsType operations = abstraction.Operations;
-		BeginNamespace(operations.codeNamespace);
-		foreach(var operation in operations.Operation)
-			GenerateOperation(operation);
-		EndBlock();
-		//PowerPointAddIn_v1_0.PowerPointAddInAbstraction abstraction = LoadXml<PowerPointAddIn_v1_0.PowerPointAddInAbstraction>(xmlFileName);
-		//GenerateAddInBase(abstraction);
-	}
+	TransformGenerator<Operation_v1_0.OperationAbstractionType>(GenerateRoot, ".designer.cs");	
 #>
 <#+ 
 
+	void GenerateRoot()
+	{
+		GenerateOperationAbstraction(CurrentAbstraction);
+	}
+	
+	
 	Operation_v1_0.OperationAbstractionType CurrentAbstraction;
 	
 	void SetCurrentAbstraction(object abs)
 	{
 		CurrentAbstraction = (Operation_v1_0.OperationAbstractionType) abs;
 	}
+	
+	void GenerateOperationAbstraction(Operation_v1_0.OperationAbstractionType abstraction)
+	{
+		Operation_v1_0.OperationsType operations = abstraction.Operations;
+		#>
+using System;
+
+		<#+
+		BeginNamespace(operations.codeNamespace);
+		foreach(var operation in operations.Operation)
+			GenerateOperation(operation);
+		EndBlock();
+	}
 
 	#region Class Level Variable Block
 	
 	//CQRS_v1_0.DomainType CurrentDomain;
-	
-	public static void MyGenerate()
-	{
-		new OperationABS.Operation.
-			CSharpCode_v1_0().	TransformText();
-	}
-	
 	
 	void GenerateOperation(Operation_v1_0.OperationType operation)
 	{

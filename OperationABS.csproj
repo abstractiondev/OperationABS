@@ -41,17 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Operation\CSharpCode_v1_0.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CSharpCode_v1_0.tt</DependentUpon>
-    </Compile>
     <Compile Include="Operation\Operation_v1_0_namespace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Common\CommonCodeblocks.ttinclude" />
-    <None Include="Common\XSDToIncludeGenerator.ttinclude" />
     <None Include="Operation\Content_v1_0\Operation_v1_0.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <AutoGen>True</AutoGen>
@@ -64,8 +57,7 @@
       <LastGenOutput>Operation_v1_0.tt</LastGenOutput>
     </None>
     <None Include="Operation\CSharpCode_v1_0.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CSharpCode_v1_0.designer.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <TransformOnBuild>True</TransformOnBuild>
     </None>
     <None Include="Operation\Operation_v1_0.ttinclude" />
@@ -73,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Options.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
