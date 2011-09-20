@@ -377,61 +377,15 @@ namespace Operation_v1_0 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-    public partial class AdvancedExecutionType {
-        
-        private SequentialExecutionType[] itemsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Execution")]
-        public SequentialExecutionType[] Items {
-            get {
-                return this.itemsField;
-            }
-            set {
-                this.itemsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-    public partial class SequentialExecutionType {
-        
-        private object[] itemsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("MethodExecute", typeof(MethodExecuteType))]
-        [System.Xml.Serialization.XmlElementAttribute("OperationExecute", typeof(OperationExecuteType))]
-        [System.Xml.Serialization.XmlElementAttribute("TargetDefinition", typeof(TargetDefinitionType))]
-        public object[] Items {
-            get {
-                return this.itemsField;
-            }
-            set {
-                this.itemsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-    public partial class MethodExecuteType {
+    public partial class TargetDefinitionType {
         
         private TargetType[] parameterField;
         
         private TargetType[] targetField;
         
-        private VariableType[] returnValueField;
-        
         private string nameField;
+        
+        private string dataTypeField;
         
         private string designDescField;
         
@@ -460,17 +414,6 @@ namespace Operation_v1_0 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ReturnValue")]
-        public VariableType[] ReturnValue {
-            get {
-                return this.returnValueField;
-            }
-            set {
-                this.returnValueField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string name {
             get {
@@ -478,6 +421,17 @@ namespace Operation_v1_0 {
             }
             set {
                 this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string dataType {
+            get {
+                return this.dataTypeField;
+            }
+            set {
+                this.dataTypeField = value;
             }
         }
         
@@ -610,15 +564,15 @@ namespace Operation_v1_0 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
-    public partial class TargetDefinitionType {
+    public partial class MethodExecuteType {
         
         private TargetType[] parameterField;
         
         private TargetType[] targetField;
         
-        private string nameField;
+        private VariableType[] returnValueField;
         
-        private string dataTypeField;
+        private string nameField;
         
         private string designDescField;
         
@@ -647,6 +601,17 @@ namespace Operation_v1_0 {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ReturnValue")]
+        public VariableType[] ReturnValue {
+            get {
+                return this.returnValueField;
+            }
+            set {
+                this.returnValueField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string name {
             get {
@@ -654,17 +619,6 @@ namespace Operation_v1_0 {
             }
             set {
                 this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string dataType {
-            get {
-                return this.dataTypeField;
-            }
-            set {
-                this.dataTypeField = value;
             }
         }
         
@@ -699,17 +653,18 @@ namespace Operation_v1_0 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
     public partial class ExecutionType {
         
-        private object itemField;
+        private object[] sequentialExecutionField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AdvancedExecution", typeof(AdvancedExecutionType))]
-        [System.Xml.Serialization.XmlElementAttribute("SequentialExecution", typeof(SequentialExecutionType))]
-        public object Item {
+        [System.Xml.Serialization.XmlArrayItemAttribute("MethodExecute", typeof(MethodExecuteType), IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("OperationExecute", typeof(OperationExecuteType), IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("TargetDefinition", typeof(TargetDefinitionType), IsNullable=false)]
+        public object[] SequentialExecution {
             get {
-                return this.itemField;
+                return this.sequentialExecutionField;
             }
             set {
-                this.itemField = value;
+                this.sequentialExecutionField = value;
             }
         }
     }

@@ -15,10 +15,9 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ExecutionType">
-		<xs:choice>
+		<xs:sequence>
 			<xs:element name="SequentialExecution" type="SequentialExecutionType"/>
-			<xs:element name="AdvancedExecution" type="AdvancedExecutionType"/>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="MethodExecuteType">
 		<xs:sequence>
