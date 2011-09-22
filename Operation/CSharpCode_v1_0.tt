@@ -14,9 +14,9 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #> 
 <#@ include file="..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude" #>
-<#@ include file="Operation_v1_0_namespace.ttinclude" #>
+<#@ include file="Operation_v1_0.ttinclude" #>
 <#   
-	TransformGenerator<Operation_v1_0.OperationAbstractionType>(GenerateRoot, ".designer.cs");	
+	TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
 #>
 <#+ 
 
@@ -26,16 +26,16 @@
 	}
 	
 	
-	Operation_v1_0.OperationAbstractionType CurrentAbstraction;
+	OperationAbstractionType CurrentAbstraction;
 	
 	void SetCurrentAbstraction(object abs)
 	{
-		CurrentAbstraction = (Operation_v1_0.OperationAbstractionType) abs;
+		CurrentAbstraction = (OperationAbstractionType) abs;
 	}
 	
-	void GenerateOperationAbstraction(Operation_v1_0.OperationAbstractionType abstraction)
+	void GenerateOperationAbstraction(OperationAbstractionType abstraction)
 	{
-		Operation_v1_0.OperationsType operations = abstraction.Operations;
+		OperationsType operations = abstraction.Operations;
 		#>
 using System;
 
@@ -50,11 +50,11 @@ using System;
 	
 	//CQRS_v1_0.DomainType CurrentDomain;
 	
-	void GenerateOperation(Operation_v1_0.OperationType operation)
+	void GenerateOperation(OperationType operation)
 	{
 		string operationName = operation.name;
 		string parameterClassName = operationName + "Parameters";
-		string resultClassName = operationName + "Results";
+		string returnValueClassName = GetReturnValueClassName(operationName);
 		if(operation.Parameters != null)
 			GenerateVariableClassDefinition(parameterClassName, operation.Parameters.Parameter);
 		#>
@@ -64,14 +64,14 @@ using System;
 		<#+
 
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
-		//GenerateInternalReturnValueClasses(operation.Execution.SequentialExecution);
+		GenerateInternalReturnValueClasses(operation.Execution.SequentialExecution);
 		GenerateExecution(operation);
 		
 		#>
 		}
 		<#+
 		if(operation.OperationReturnValues != null)
-			GenerateVariableClassDefinition(resultClassName, operation.OperationReturnValues.ReturnValue);
+			GenerateVariableClassDefinition(returnValueClassName, operation.OperationReturnValues.ReturnValue);
 
 	}
 	void GenerateInternalReturnValueClasses(object[] executionItems)
@@ -82,10 +82,11 @@ using System;
 	
 	void GenerateReturnValueClassDefinition(object executionItem)
 	{
-		Operation_v1_0.OperationExecuteType operationExec = executionItem as Operation_v1_0.OperationExecuteType;
-		Operation_v1_0.MethodExecuteType methodExec = executionItem as Operation_v1_0.MethodExecuteType;
-		Operation_v1_0.TargetDefinitionType targetDef = executionItem as Operation_v1_0.TargetDefinitionType;
+		OperationExecuteType operationExec = executionItem as OperationExecuteType;
+		MethodExecuteType methodExec = executionItem as MethodExecuteType;
+		TargetDefinitionType targetDef = executionItem as TargetDefinitionType;
 		if(operationExec != null) {
+			GenerateReturnValueClassDefinition(operationExec.name, operationExec.ReturnValue, false);
 		}
 		else if(methodExec != null)
 			GenerateReturnValueClassDefinition(methodExec.name, methodExec.ReturnValue, false);
@@ -95,7 +96,7 @@ using System;
 	}
 	
 	
-	string[] GetParameterArray(string prefix, Operation_v1_0.TargetType[] targets)
+	string[] GetParameterArray(string prefix, TargetType[] targets)
 	{
 		if(targets == null)
 			return new string[0];
@@ -103,8 +104,8 @@ using System;
 		return result;
 	}
 	
-	string GetParametersAndTargetsAsAllParams(string paramPrefix, Operation_v1_0.TargetType[] parameters,
-		Operation_v1_0.TargetType[] targets)
+	string GetParametersAndTargetsAsAllParams(string paramPrefix, TargetType[] parameters,
+		TargetType[] targets)
 	{
 		string[] parameterParameters = GetParameterArray(paramPrefix, parameters);
 		string[] targetParameters = GetParameterArray("", targets);
@@ -112,7 +113,17 @@ using System;
 		return allParameters;
 	}
 	
-	string GetReturnValueType(string returnValueOwner, Operation_v1_0.VariableType[] returnValues, bool isOperation)
+	bool HasReturnValue(OperationType operation)
+	{
+		return operation.OperationReturnValues != null;
+	}
+	
+	bool HasParameters(OperationType operation)
+	{
+		return operation.Parameters != null;
+	}
+	
+	string GetReturnValueType(string returnValueOwner, VariableType[] returnValues, bool isOperation)
 	{
 		if(returnValues == null)
 			return "void";
@@ -131,7 +142,7 @@ using System;
 		return returnValueOwner + "Output";
 	}
 	
-	void GenerateReturnValueClassDefinition(string returnValueOwner, Operation_v1_0.VariableType[] returnValues, bool isOperation)
+	void GenerateReturnValueClassDefinition(string returnValueOwner, VariableType[] returnValues, bool isOperation)
 	{
 		if(returnValues == null || (returnValues.Length < 2 && isOperation == false))
 			return;
@@ -139,15 +150,53 @@ using System;
 		GenerateVariableClassDefinition(returnValueClassName, returnValues);
 	}
 	
-	void GenerateOperationExecuteItem(Operation_v1_0.OperationExecuteType operationExec)
+	void GenerateOperationExecuteItem(OperationExecuteType operationExec)
 	{
-		
+		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
+			operationExec.Parameter, operationExec.Target);
+		string returnValueType = GetReturnValueType(operationExec.name, operationExec.ReturnValue, false);
+		string executionOutputName = GetExecutionOutputName(operationExec.name);
+		string returnValueDefinitionString = operationExec.ReturnValue != null ?
+			returnValueType + " " + executionOutputName + ";" : "";
+		string targetOperationName = operationExec.targetOperationName;
+		OperationType targetOperation = GetOperation(targetOperationName);
+		string targetOperationParametersName = targetOperation.name + "Parameters";
+		string targetOperationParameterCall = "";
+		string targetOperationReturnValueAssignment = "";
+		string getOutputParameters = "";
+		if(HasReturnValue(targetOperation))
+		{
+			targetOperationReturnValueAssignment = "var operationReturnValue = ";
+			string[] outputParameterArray = allParameters.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(str => str.Trim()).ToArray();
+			outputParameterArray = (new string[] { "operationReturnValue" }).Union(outputParameterArray).ToArray();
+			getOutputParameters = String.Join(", ", outputParameterArray);
+		} else
+		{
+			getOutputParameters = allParameters;
+		}
+		string operationCallParameters = "";
+		if(HasParameters(targetOperation))
+		{
+			targetOperationParameterCall = targetOperationParametersName + 
+				" operationParameters = " + operationExec.name + 
+				"_GetParameters(" + allParameters + ");";
+			operationCallParameters = "operationParameters";
+		} 
+		string execName = operationExec.name;
+		string returnValueAssignmentString = operationExec.ReturnValue != null ? 
+			executionOutputName + " = " + execName + "_GetOutput(" + getOutputParameters + ");" : "";
 		#>
-		
+		<#= returnValueDefinitionString #>
+		{ // Local block to allow local naming
+			<#= targetOperationParameterCall #>
+			<#= targetOperationReturnValueAssignment #><#= targetOperationName #>.Execute(<#= operationCallParameters #>);
+			<#= returnValueAssignmentString #>						
+		} // Local block closing
 		<#+
+
 	}
 	
-	void GenerateMethodExecuteItem(Operation_v1_0.MethodExecuteType methodExec)
+	void GenerateMethodExecuteItem(MethodExecuteType methodExec)
 	{
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			methodExec.Parameter, methodExec.Target);
@@ -160,7 +209,7 @@ using System;
 		<#+
 	}
 	
-	void GenerateTargetDefinitionItem(Operation_v1_0.TargetDefinitionType targetDef)
+	void GenerateTargetDefinitionItem(TargetDefinitionType targetDef)
 	{
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			targetDef.Parameter, targetDef.Target);
@@ -171,9 +220,9 @@ using System;
 	
 	void GenerateExecutionItem(object executionItem)
 	{
-		Operation_v1_0.OperationExecuteType operationExec = executionItem as Operation_v1_0.OperationExecuteType;
-		Operation_v1_0.MethodExecuteType methodExec = executionItem as Operation_v1_0.MethodExecuteType;
-		Operation_v1_0.TargetDefinitionType targetDef = executionItem as Operation_v1_0.TargetDefinitionType;
+		OperationExecuteType operationExec = executionItem as OperationExecuteType;
+		MethodExecuteType methodExec = executionItem as MethodExecuteType;
+		TargetDefinitionType targetDef = executionItem as TargetDefinitionType;
 		if(operationExec != null)
 			GenerateOperationExecuteItem(operationExec);
 		else if(methodExec != null)
@@ -184,7 +233,7 @@ using System;
 			throw new NotSupportedException("Execution item type: " + executionItem.GetType().Name);
 	}
 	
-	void GenerateExecution(Operation_v1_0.OperationType operation)
+	void GenerateExecution(OperationType operation)
 	{
 		string operationName = operation.name;
 		string parametersCallingString = operation.Parameters != null ?  operationName + "Parameters parameters" : "";
@@ -195,17 +244,17 @@ using System;
 		{
 			<#= parameterPreparationCallString #>
 			<#+
-			//foreach(object executionItem in operation.Execution.SequentialExecution)
-			//{
-			//	GenerateExecutionItem(executionItem);
-			//}
+			foreach(object executionItem in operation.Execution.SequentialExecution)
+			{
+				GenerateExecutionItem(executionItem);
+			}
 			
 			#>
 		}
 		<#+
 	}
 	
-	string GetCallingTargetsParameterString(Operation_v1_0.TargetType[] targets, string emptyParameterResult,
+	string GetCallingTargetsParameterString(TargetType[] targets, string emptyParameterResult,
 		string prefixText = "")
 	{
 		if(targets == null || targets.Length == 0)
@@ -214,7 +263,7 @@ using System;
 		return String.Join(", ", targetNames);
 	}
 	
-	void GenerateValidationItem(Operation_v1_0.ValidationType validationItem)
+	void GenerateValidationItem(ValidationType validationItem)
 	{
 		string validationMethodName = "ParameterValidation_" + validationItem.name + "_ThrowsException";
 		string callingParametersString = GetCallingTargetsParameterString(validationItem.Target, "parameters", "parameters.");
@@ -223,7 +272,24 @@ using System;
 		<#+
 	}
 	
-	void GenerateModificationItem(Operation_v1_0.ModificationType modificationItem)
+	OperationType GetOperation(string operationName, bool requireExisting = true)
+	{
+		OperationType operation =
+			CurrentAbstraction.Operations.Operation.FirstOrDefault(item => item.name == operationName);
+		if(requireExisting && operation == null)
+			throw new ArgumentException("Operation not found with requested name: " + operationName, "operationName");
+		return operation;
+	}
+	
+	VariableType[] GetReturnValues(string operationName)
+	{
+		OperationType operation = GetOperation(operationName);
+		if(operation.OperationReturnValues == null)
+			return null;
+		return operation.OperationReturnValues.ReturnValue;
+	}
+	
+	void GenerateModificationItem(ModificationType modificationItem)
 	{
 		string modificationMethodName = "ParameterModification_" + modificationItem.name;
 		string callingParametersString = GetCallingTargetsParameterString(modificationItem.Target, "parameters", "ref parameters.");
@@ -237,8 +303,8 @@ using System;
 	{
 		if(preparingItem == null)
 			throw new ArgumentNullException("preparingItem");
-		Operation_v1_0.ValidationType validationItem = preparingItem as Operation_v1_0.ValidationType;
-		Operation_v1_0.ModificationType modificationItem = preparingItem as Operation_v1_0.ModificationType;
+		ValidationType validationItem = preparingItem as ValidationType;
+		ModificationType modificationItem = preparingItem as ModificationType;
 		if(validationItem != null)
 			GenerateValidationItem(validationItem);
 		else if(modificationItem != null)
@@ -247,12 +313,12 @@ using System;
 			throw new NotSupportedException("Preparing item type: " + preparingItem.GetType().Name);
 	}
 	
-	void GenerateParameterPreparation(string parameterClassName, Operation_v1_0.ParametersType parameters)
+	void GenerateParameterPreparation(string parameterClassName, ParametersType parameters)
 	{
 		if(parameters == null)
 			return;
 		#>
-		private void PrepareParameters(<#= parameterClassName #> parameters)
+		private static void PrepareParameters(<#= parameterClassName #> parameters)
 		{
 			<#+
 			foreach(object preparingItem in parameters.Items)
@@ -262,7 +328,7 @@ using System;
 		<#+
 	}
 	
-	void GenerateVariableDefinition(Operation_v1_0.VariableType variableDef, string accessModifier, string initialAssignment)
+	void GenerateVariableDefinition(VariableType variableDef, string accessModifier, string initialAssignment)
 	{
 		GenerateVariableDefinition(variableDef.dataType, variableDef.name, accessModifier, initialAssignment);
 	}
@@ -280,7 +346,7 @@ using System;
 		<#+
 	}
 	
-	void GenerateVariableClassDefinition(string className, Operation_v1_0.VariableType[] variables)
+	void GenerateVariableClassDefinition(string className, VariableType[] variables)
 	{
 		if(className == null)
 			throw new ArgumentNullException("className");
@@ -297,7 +363,7 @@ using System;
 		<#+
 	}
 	
-	void GenerateParameterDefinition(string operationName, Operation_v1_0.ParametersType parameters)
+	void GenerateParameterDefinition(string operationName, ParametersType parameters)
 	{
 		if(parameters == null || parameters.Parameter == null || parameters.Parameter.Length == 0)
 			return;
