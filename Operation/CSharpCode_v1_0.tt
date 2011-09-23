@@ -16,13 +16,29 @@
 <#@ include file="..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude" #>
 <#@ include file="Operation_v1_0.ttinclude" #>
 <#   
-	TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
+	// TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
+	GenerateOperationAbstraction(CurrentAbstraction);
 #>
 <#+ 
 
+	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
+	{
+		List<Tuple<string, string>> result = new List<Tuple<string, string>>();
+		foreach(string xmlFileName in xmlFileNames)
+		{
+			OperationAbstractionType abs = LoadXml<OperationAbstractionType>(xmlFileName);
+			CurrentAbstraction = abs;
+			string content = TransformText();
+			string outputFile = Path.GetFileNameWithoutExtension(xmlFileName) + ".designer.cs";
+			result.Add(Tuple.Create(outputFile, content));
+		}
+		return result.ToArray();
+	}
+
+	
 	void GenerateRoot()
 	{
-		GenerateOperationAbstraction(CurrentAbstraction);
+		//GenerateOperationAbstraction(CurrentAbstraction);
 	}
 	
 	
@@ -50,8 +66,11 @@ using System;
 	
 	//CQRS_v1_0.DomainType CurrentDomain;
 	
+	OperationType CurrOperation;
+	
 	void GenerateOperation(OperationType operation)
 	{
+		CurrOperation = operation;
 		string operationName = operation.name;
 		string parameterClassName = operationName + "Parameters";
 		string returnValueClassName = GetReturnValueClassName(operationName);
@@ -66,7 +85,6 @@ using System;
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
 		GenerateInternalReturnValueClasses(operation.Execution.SequentialExecution);
 		GenerateExecution(operation);
-		
 		#>
 		}
 		<#+
@@ -74,6 +92,21 @@ using System;
 			GenerateVariableClassDefinition(returnValueClassName, operation.OperationReturnValues.ReturnValue);
 
 	}
+
+	void GenerateReturnValue(OperationReturnValuesType returnValues)
+	{
+		if(returnValues == null)
+			return;
+		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
+			returnValues.Parameter, returnValues.Target);
+		string returnValueClassName = GetReturnValueClassName(CurrOperation.name);
+		string execName = GetPrefixedMethodName("Get_ReturnValue");
+		#>
+		<#= returnValueClassName #> returnValue = <#= execName #>(<#= allParameters #>);
+		return returnValue;
+		<#+
+	}
+	
 	void GenerateInternalReturnValueClasses(object[] executionItems)
 	{
 		foreach(object executionItem in executionItems)
@@ -150,6 +183,12 @@ using System;
 		GenerateVariableClassDefinition(returnValueClassName, returnValues);
 	}
 	
+	string GetPrefixedMethodName(string methodName)
+	{
+		string implementationClassMethodName = CurrOperation.name + "Implementation." + methodName;
+		return implementationClassMethodName;
+	}
+	
 	void GenerateOperationExecuteItem(OperationExecuteType operationExec)
 	{
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
@@ -175,14 +214,13 @@ using System;
 			getOutputParameters = allParameters;
 		}
 		string operationCallParameters = "";
+		string execName = GetPrefixedMethodName(operationExec.name);
 		if(HasParameters(targetOperation))
 		{
 			targetOperationParameterCall = targetOperationParametersName + 
-				" operationParameters = " + operationExec.name + 
-				"_GetParameters(" + allParameters + ");";
+				" operationParameters = " + execName + "_GetParameters(" + allParameters + ");";
 			operationCallParameters = "operationParameters";
 		} 
-		string execName = operationExec.name;
 		string returnValueAssignmentString = operationExec.ReturnValue != null ? 
 			executionOutputName + " = " + execName + "_GetOutput(" + getOutputParameters + ");" : "";
 		#>
@@ -204,8 +242,9 @@ using System;
 		string executionOutputName = GetExecutionOutputName(methodExec.name);
 		string returnValueOutputString = methodExec.ReturnValue != null ? 
 			returnValueType + " " + executionOutputName + " = " : "";
+		string execName = GetPrefixedMethodName("ExecuteMethod_" + methodExec.name);
 		#>
-		<#= returnValueOutputString #>ExecuteMethod_<#= methodExec.name #>(<#= allParameters #>);		
+		<#= returnValueOutputString #><#= execName #>(<#= allParameters #>);		
 		<#+
 	}
 	
@@ -213,8 +252,9 @@ using System;
 	{
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			targetDef.Parameter, targetDef.Target);
+		string execName = GetPrefixedMethodName("GetTarget_" + targetDef.name);
 		#>
-		<#= targetDef.dataType #> <#= targetDef.name #> = GetTarget_<#= targetDef.name #>(<#= allParameters #>);	
+		<#= targetDef.dataType #> <#= targetDef.name #> = <#= execName #>(<#= allParameters #>);	
 		<#+
 	}
 	
@@ -248,7 +288,7 @@ using System;
 			{
 				GenerateExecutionItem(executionItem);
 			}
-			
+			GenerateReturnValue(operation.OperationReturnValues);
 			#>
 		}
 		<#+
@@ -266,6 +306,7 @@ using System;
 	void GenerateValidationItem(ValidationType validationItem)
 	{
 		string validationMethodName = "ParameterValidation_" + validationItem.name + "_ThrowsException";
+		validationMethodName = GetPrefixedMethodName(validationMethodName);
 		string callingParametersString = GetCallingTargetsParameterString(validationItem.Target, "parameters", "parameters.");
 		#>
 		<#= validationMethodName #>(<#= callingParametersString #>);
@@ -292,6 +333,7 @@ using System;
 	void GenerateModificationItem(ModificationType modificationItem)
 	{
 		string modificationMethodName = "ParameterModification_" + modificationItem.name;
+		modificationMethodName = GetPrefixedMethodName(modificationMethodName);
 		string callingParametersString = GetCallingTargetsParameterString(modificationItem.Target, "parameters", "ref parameters.");
 		#>
 		<#= modificationMethodName #>(<#= callingParametersString #>);
