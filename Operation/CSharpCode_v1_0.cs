@@ -646,40 +646,242 @@ this.Write(")\r\n\t\t{\r\n\t\t\t");
         #line hidden
         
         #line 285 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
-this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
-
+ GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); 
         
         #line default
         #line hidden
         
         #line 285 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
-this.Write("\r\n\t\t\t");
+this.Write("\t\t\t");
 
         
         #line default
         #line hidden
         
         #line 286 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
+
+        
+        #line default
+        #line hidden
+        
+        #line 286 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("\r\n\t\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 287 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
 				GenerateExecutionItem(executionItem);
 			}
+			GeneratePerformanceRequirementAssertion(GetPerformanceRequirements(operation));
 			GenerateReturnValue(operation.OperationReturnValues);
 			
         
         #line default
         #line hidden
         
-        #line 292 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 294 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 294 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 296 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
+	}
+
+	RequirementType[] GetPerformanceRequirements(OperationType operation)
+	{
+		if(operation.OperationSpec == null || operation.OperationSpec.Requirements == null)
+			return null;
+		RequirementType[] performanceRequirements = operation.OperationSpec.Requirements.Where(req => req.Item is RequirementTypePerformance).ToArray();
+		RequirementType invalidCheck = performanceRequirements.FirstOrDefault(req => req.category != RequirementTypeCategory.Performance);
+		if(invalidCheck != null)
+			throw new ArgumentException("Performance requirement in wrong category: " + invalidCheck.name + " category " + invalidCheck.category.ToString());
+		return performanceRequirements;
+	}
+	
+	void GeneratePerformanceRequirementInitialization(RequirementType[] performanceReqs)
+	{
+		if(performanceReqs == null)
+			return;
+		foreach(RequirementType req in performanceReqs)
+			GeneratePerfReqInit(req.name, req.Item as RequirementTypePerformance);
+	}
+	
+	void GeneratePerfReqInit(string reqName, RequirementTypePerformance perfReq)
+	{
+		if(perfReq.maxCPUTimeMsSpecified || perfReq.maxFileIOBytesSpecified || perfReq.maxFileIOCountSpecified || perfReq.maxFileIOTimeMsSpecified 
+			|| perfReq.maxMemoryBytesSpecified)
+			throw new NotSupportedException("Only TotalMSTime is supported as performance requirement for now");
+		if(perfReq.maxTotalTimeMsSpecified) 
+		{
+		
+        
+        #line default
+        #line hidden
+        
+        #line 325 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("\t        DateTime perfMonitorTotalTimeMs_");
+
+        
+        #line default
+        #line hidden
+        
+        #line 326 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 326 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("_Start = DateTime.Now;\r\n\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 327 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+
+		}
+	}
+	
+	void GeneratePerfReqAssert(string reqName, RequirementTypePerformance perfReq)
+	{
+		if(perfReq.maxCPUTimeMsSpecified || perfReq.maxFileIOBytesSpecified || perfReq.maxFileIOCountSpecified || perfReq.maxFileIOTimeMsSpecified 
+			|| perfReq.maxMemoryBytesSpecified)
+			throw new NotSupportedException("Only TotalMSTime is supported as performance requirement for now");
+		if(perfReq.maxTotalTimeMsSpecified) 
+		{
+		
+        
+        #line default
+        #line hidden
+        
+        #line 338 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("\t\t\tTimeSpan TotalTimeMs_");
+
+        
+        #line default
+        #line hidden
+        
+        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("_duration = DateTime.Now - perfMonitorTotalTimeMs_");
+
+        
+        #line default
+        #line hidden
+        
+        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("_Start;\r\n            if(TotalTimeMs_");
+
+        
+        #line default
+        #line hidden
+        
+        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("_duration.TotalMilliseconds > ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
+
+        
+        #line default
+        #line hidden
+        
+        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(")\r\n            {\r\n                throw new TimeoutException(String.Format(\"Perfo" +
+        "rmance not withing requirement: ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(" requires ");
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(" ms, it took {0} ms\", TotalTimeMs_");
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 344 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+
+		}
+	}
+	
+	void GeneratePerformanceRequirementAssertion(RequirementType[] performanceReqs)
+	{
+		if(performanceReqs == null)
+			return;
+		foreach(RequirementType req in performanceReqs)
+			GeneratePerfReqAssert(req.name, req.Item as RequirementTypePerformance);
 	}
 	
 	string GetCallingTargetsParameterString(TargetType[] targets, string emptyParameterResult,
@@ -701,42 +903,42 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 311 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 370 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 312 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(validationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 312 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 312 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 312 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 313 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 372 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -767,42 +969,42 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 338 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 397 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(modificationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		
 	}
@@ -830,28 +1032,28 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 362 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 421 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tprivate static void PrepareParameters(");
 
         
         #line default
         #line hidden
         
-        #line 363 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 422 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterClassName));
 
         
         #line default
         #line hidden
         
-        #line 363 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 422 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 365 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 424 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object preparingItem in parameters.Items)
 				GeneratePreparingItem(preparingItem);
@@ -860,14 +1062,14 @@ this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 368 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 427 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 370 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 429 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -889,70 +1091,70 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 386 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 445 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessString));
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(dataType));
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(initialAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 387 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 388 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -967,28 +1169,28 @@ this.Write(";\r\n\t\t");
         #line default
         #line hidden
         
-        #line 397 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 456 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 457 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(className));
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 457 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 400 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 459 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(var variable in variables)
 			GenerateVariableDefinition(variable, "public", null);
@@ -997,14 +1199,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 403 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 462 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 405 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 464 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1059,6 +1261,7 @@ this.Write("\t\t}\r\n\t\t");
 		// 4. If necessary, copy over and alter the include-files specified for common includes
 		
 		// ShareLevel = AbstractionShareLevel.Shared;
+		
 		string templateDirectoryPath = Path.GetDirectoryName(Host.TemplateFile);
 		DirectoryInfo dirInfo = new DirectoryInfo(templateDirectoryPath);
 		dirInfo = dirInfo.Parent;
@@ -1134,28 +1337,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 108 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write("namespace ");
 
         
         #line default
         #line hidden
         
-        #line 108 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
 
         
         #line default
         #line hidden
         
-        #line 108 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" { \r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 110 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	}
 
@@ -1165,14 +1368,14 @@ this.Write(" { \r\n\t\t");
         #line default
         #line hidden
         
-        #line 113 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" } ");
 
         
         #line default
         #line hidden
         
-        #line 113 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 
 	}
 

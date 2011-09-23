@@ -282,16 +282,75 @@ using System;
 		#>
 		public static <#= resultsTypeNameString #> Execute(<#= parametersCallingString #>)
 		{
+			<#+ GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); #>
 			<#= parameterPreparationCallString #>
 			<#+
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
 				GenerateExecutionItem(executionItem);
 			}
+			GeneratePerformanceRequirementAssertion(GetPerformanceRequirements(operation));
 			GenerateReturnValue(operation.OperationReturnValues);
 			#>
 		}
 		<#+
+	}
+
+	RequirementType[] GetPerformanceRequirements(OperationType operation)
+	{
+		if(operation.OperationSpec == null || operation.OperationSpec.Requirements == null)
+			return null;
+		RequirementType[] performanceRequirements = operation.OperationSpec.Requirements.Where(req => req.Item is RequirementTypePerformance).ToArray();
+		RequirementType invalidCheck = performanceRequirements.FirstOrDefault(req => req.category != RequirementTypeCategory.Performance);
+		if(invalidCheck != null)
+			throw new ArgumentException("Performance requirement in wrong category: " + invalidCheck.name + " category " + invalidCheck.category.ToString());
+		return performanceRequirements;
+	}
+	
+	void GeneratePerformanceRequirementInitialization(RequirementType[] performanceReqs)
+	{
+		if(performanceReqs == null)
+			return;
+		foreach(RequirementType req in performanceReqs)
+			GeneratePerfReqInit(req.name, req.Item as RequirementTypePerformance);
+	}
+	
+	void GeneratePerfReqInit(string reqName, RequirementTypePerformance perfReq)
+	{
+		if(perfReq.maxCPUTimeMsSpecified || perfReq.maxFileIOBytesSpecified || perfReq.maxFileIOCountSpecified || perfReq.maxFileIOTimeMsSpecified 
+			|| perfReq.maxMemoryBytesSpecified)
+			throw new NotSupportedException("Only TotalMSTime is supported as performance requirement for now");
+		if(perfReq.maxTotalTimeMsSpecified) 
+		{
+		#>
+	        DateTime perfMonitorTotalTimeMs_<#= reqName #>_Start = DateTime.Now;
+		<#+
+		}
+	}
+	
+	void GeneratePerfReqAssert(string reqName, RequirementTypePerformance perfReq)
+	{
+		if(perfReq.maxCPUTimeMsSpecified || perfReq.maxFileIOBytesSpecified || perfReq.maxFileIOCountSpecified || perfReq.maxFileIOTimeMsSpecified 
+			|| perfReq.maxMemoryBytesSpecified)
+			throw new NotSupportedException("Only TotalMSTime is supported as performance requirement for now");
+		if(perfReq.maxTotalTimeMsSpecified) 
+		{
+		#>
+			TimeSpan TotalTimeMs_<#= reqName #>_duration = DateTime.Now - perfMonitorTotalTimeMs_<#= reqName #>_Start;
+            if(TotalTimeMs_<#= reqName #>_duration.TotalMilliseconds > <#= perfReq.maxTotalTimeMs #>)
+            {
+                throw new TimeoutException(String.Format("Performance not withing requirement: <#= reqName #> requires <#= perfReq.maxTotalTimeMs #> ms, it took {0} ms", TotalTimeMs_<#= reqName #>_duration.TotalMilliseconds));
+            }
+		<#+
+		}
+	}
+	
+	void GeneratePerformanceRequirementAssertion(RequirementType[] performanceReqs)
+	{
+		if(performanceReqs == null)
+			return;
+		foreach(RequirementType req in performanceReqs)
+			GeneratePerfReqAssert(req.name, req.Item as RequirementTypePerformance);
 	}
 	
 	string GetCallingTargetsParameterString(TargetType[] targets, string emptyParameterResult,
