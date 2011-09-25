@@ -20,7 +20,7 @@ namespace OperationABS.Operation
     using System.Collections.Generic;
     
     
-    #line 1 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+    #line 1 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
     public partial class CSharpCode_v1_0 : CSharpCode_v1_0Base
     {
@@ -29,7 +29,7 @@ namespace OperationABS.Operation
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 18 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+            #line 18 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
    
 	// TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
 	GenerateOperationAbstraction(CurrentAbstraction);
@@ -52,7 +52,7 @@ namespace OperationABS.Operation
             }
         }
         
-        #line 22 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 22 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  
 
 	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
@@ -91,14 +91,14 @@ namespace OperationABS.Operation
         #line default
         #line hidden
         
-        #line 55 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 55 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("using System;\r\n\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 58 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 58 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		BeginNamespace(operations.codeNamespace);
 		foreach(var operation in operations.Operation)
@@ -125,28 +125,28 @@ this.Write("using System;\r\n\r\n\t\t");
         #line default
         #line hidden
         
-        #line 79 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 79 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 81 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 81 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationName));
 
         
         #line default
         #line hidden
         
-        #line 81 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 81 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 83 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 83 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
@@ -157,14 +157,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 88 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 88 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 90 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 90 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		if(operation.OperationReturnValues != null)
 			GenerateVariableClassDefinition(returnValueClassName, operation.OperationReturnValues.ReturnValue);
@@ -184,56 +184,56 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 104 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 104 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueClassName));
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" returnValue = ");
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 105 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 105 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 107 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 107 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -358,91 +358,91 @@ this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 226 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 226 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 227 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 227 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueDefinitionString));
 
         
         #line default
         #line hidden
         
-        #line 227 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 227 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t{ // Local block to allow local naming\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 229 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 229 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationParameterCall));
 
         
         #line default
         #line hidden
         
-        #line 229 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 229 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 230 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 230 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationReturnValueAssignment));
 
         
         #line default
         #line hidden
         
-        #line 230 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 230 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationName));
 
         
         #line default
         #line hidden
         
-        #line 230 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 230 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(".Execute(");
 
         
         #line default
         #line hidden
         
-        #line 230 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 230 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationCallParameters));
 
         
         #line default
         #line hidden
         
-        #line 230 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 230 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 231 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 231 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 231 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 231 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 233 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 233 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 	}
@@ -461,49 +461,49 @@ this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
         #line default
         #line hidden
         
-        #line 246 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 246 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 247 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueOutputString));
 
         
         #line default
         #line hidden
         
-        #line 247 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 247 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 247 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 247 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 248 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 248 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -517,70 +517,70 @@ this.Write(");\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 256 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 256 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.dataType));
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.name));
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 257 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 257 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 258 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 258 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -610,69 +610,69 @@ this.Write(");\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 282 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 282 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic static ");
 
         
         #line default
         #line hidden
         
-        #line 283 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 283 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(resultsTypeNameString));
 
         
         #line default
         #line hidden
         
-        #line 283 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 283 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" Execute(");
 
         
         #line default
         #line hidden
         
-        #line 283 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 283 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parametersCallingString));
 
         
         #line default
         #line hidden
         
-        #line 283 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 283 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 285 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); 
         
         #line default
         #line hidden
         
-        #line 285 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 286 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 286 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
 
         
         #line default
         #line hidden
         
-        #line 286 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 286 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 287 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 287 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
@@ -685,14 +685,14 @@ this.Write("\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 294 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 294 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 296 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 296 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 
@@ -727,28 +727,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 325 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 325 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t        DateTime perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 326 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 326 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 326 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 326 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start = DateTime.Now;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 327 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 327 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -765,63 +765,64 @@ this.Write("_Start = DateTime.Now;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 338 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
-this.Write("\t\t\tTimeSpan TotalTimeMs_");
+        #line 338 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+this.Write("\t\t\t// TODO: Add bit more subtle diagnostical logging instead of brute exception (" +
+        "as an option at least)\r\n\t\t\tTimeSpan TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration = DateTime.Now - perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 339 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start;\r\n            if(TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds > ");
 
         
         #line default
         #line hidden
         
-        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 340 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n            {\r\n                throw new TimeoutException(String.Format(\"Perfo" +
         "rmance not withing requirement: ");
 
@@ -829,49 +830,49 @@ this.Write(")\r\n            {\r\n                throw new TimeoutException(Str
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" requires ");
 
         
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ms, it took {0} ms\", TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 342 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 344 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 345 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -903,42 +904,42 @@ this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
         #line default
         #line hidden
         
-        #line 370 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 371 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 372 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(validationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 372 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 372 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 371 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 372 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 372 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 373 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -969,42 +970,42 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 397 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 398 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(modificationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 398 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 399 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 400 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		
 	}
@@ -1032,28 +1033,28 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 421 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 422 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tprivate static void PrepareParameters(");
 
         
         #line default
         #line hidden
         
-        #line 422 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 423 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterClassName));
 
         
         #line default
         #line hidden
         
-        #line 422 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 423 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 424 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 425 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object preparingItem in parameters.Items)
 				GeneratePreparingItem(preparingItem);
@@ -1062,14 +1063,14 @@ this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 427 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 429 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 430 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1091,70 +1092,70 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 445 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 446 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessString));
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(dataType));
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(initialAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 446 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 447 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 447 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 448 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1169,28 +1170,28 @@ this.Write(";\r\n\t\t");
         #line default
         #line hidden
         
-        #line 456 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 457 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 457 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 458 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(className));
 
         
         #line default
         #line hidden
         
-        #line 457 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 458 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 459 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 460 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(var variable in variables)
 			GenerateVariableDefinition(variable, "public", null);
@@ -1199,14 +1200,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 462 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 463 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 464 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 465 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1224,7 +1225,7 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 2 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 2 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	enum AbstractionShareLevel
 	{
@@ -1261,7 +1262,6 @@ this.Write("\t\t}\r\n\t\t");
 		// 4. If necessary, copy over and alter the include-files specified for common includes
 		
 		// ShareLevel = AbstractionShareLevel.Shared;
-		
 		string templateDirectoryPath = Path.GetDirectoryName(Host.TemplateFile);
 		DirectoryInfo dirInfo = new DirectoryInfo(templateDirectoryPath);
 		dirInfo = dirInfo.Parent;
@@ -1337,28 +1337,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 108 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write("namespace ");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 108 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 108 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" { \r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 110 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	}
 
@@ -1368,14 +1368,14 @@ this.Write(" { \r\n\t\t");
         #line default
         #line hidden
         
-        #line 114 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 113 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" } ");
 
         
         #line default
         #line hidden
         
-        #line 114 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 113 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 
 	}
 
@@ -1395,7 +1395,7 @@ this.Write(" } ");
         #line default
         #line hidden
         
-        #line 1 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
+        #line 1 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
 
 public class AbstractionOptions { 
 //------------------------------------------------------------------------------
@@ -1479,7 +1479,7 @@ public enum GeneralTypeShareLevel {
         #line default
         #line hidden
         
-        #line 1 "C:\GitHub\abstractiondev\Demo\LogicalOperationDemo\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
+        #line 1 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
 
 //------------------------------------------------------------------------------
 // <auto-generated>
