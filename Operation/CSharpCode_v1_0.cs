@@ -766,8 +766,8 @@ this.Write("_Start = DateTime.Now;\r\n\t\t");
         #line hidden
         
         #line 338 "C:\GitHub\kallex\private\Demos\CQRS_CustomerBankAccountDemo\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
-this.Write("\t\t\t// TODO: Add diagnostic logging or other more subtle option than just the brut" +
-        "e exception\r\n\t\t\tTimeSpan TotalTimeMs_");
+this.Write("\t\t\t// TODO: Add diagnostic message in addition to brute exception (at least as an" +
+        " option)\r\n\t\t\tTimeSpan TotalTimeMs_");
 
         
         #line default

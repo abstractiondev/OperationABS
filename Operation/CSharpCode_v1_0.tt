@@ -336,7 +336,7 @@ using System;
 		if(perfReq.maxTotalTimeMsSpecified) 
 		{
 		#>
-			// TODO: Add diagnostic logging or other more subtle option than just the brute exception
+			// TODO: Add diagnostic message in addition to brute exception (at least as an option)
 			TimeSpan TotalTimeMs_<#= reqName #>_duration = DateTime.Now - perfMonitorTotalTimeMs_<#= reqName #>_Start;
             if(TotalTimeMs_<#= reqName #>_duration.TotalMilliseconds > <#= perfReq.maxTotalTimeMs #>)
             {
