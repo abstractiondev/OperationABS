@@ -1393,6 +1393,12 @@ public partial class OperationType {
     
     private string nameField;
     
+    private bool isRootOperationField;
+    
+    public OperationType() {
+        this.isRootOperationField = false;
+    }
+    
     /// <remarks/>
     public OperationSpecType OperationSpec {
         get {
@@ -1441,6 +1447,18 @@ public partial class OperationType {
         }
         set {
             this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [System.ComponentModel.DefaultValueAttribute(false)]
+    public bool isRootOperation {
+        get {
+            return this.isRootOperationField;
+        }
+        set {
+            this.isRootOperationField = value;
         }
     }
 }

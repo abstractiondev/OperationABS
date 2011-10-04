@@ -110,7 +110,24 @@ This information is effectively used to generate the documentation and reports t
 				</xs:key>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Operation name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isRootOperation" type="xs:boolean" default="false">
+			<xs:annotation>
+				<xs:documentation>(Opt = false) Is the operation root level operation.
+
+Root level operations are responsible for completing certain larger scope of an action.
+
+While the operation structure within the single application or single system can and will be altered based on software design, the root operation indicates more cautious approach.
+
+For example, automatic exposure for business logic to service layer is can be restricted for root operations only.
+
+This type/value should be extended to cover more precise scenarios where operation sharing and reusing between different systems apply.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="ParametersType">
 		<xs:sequence>
