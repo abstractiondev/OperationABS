@@ -48,6 +48,13 @@
 	</xs:complexType>
 	<xs:complexType name="OperationExecuteType">
 		<xs:sequence>
+			<xs:element name="OperationSignature" type="OperationSignatureType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>(Opt) Defines operation signature.
+
+This is required for operations that take part of requirement and provider dependency and connection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Parameter" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Target" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ReturnValue" type="VariableType" minOccurs="0" maxOccurs="unbounded"/>
@@ -74,6 +81,19 @@
 		</xs:sequence>
 		<xs:attribute name="codeNamespace" type="xs:string" use="required"/>
 	</xs:complexType>
+	<xs:complexType name="LogicalInformationType">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="logicalNamespace" type="xs:string" use="required"/>
+		<xs:attribute name="logicalDatatype" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="OperationSignatureType">
+		<xs:sequence>
+			<xs:element name="Parameter" type="LogicalInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ReturnValue" type="LogicalInformationType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="logicalNamespace" type="xs:string" use="required"/>
+	</xs:complexType>
 	<xs:complexType name="OperationType">
 		<xs:sequence>
 			<xs:element name="OperationSpec" type="OperationSpecType">
@@ -83,6 +103,13 @@
 This information includes the references to specification and requirements.
 
 This information is effectively used to generate the documentation and reports to communicate with stakeholders and other interest parties, such as testers and requirement analysts.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationSignature" type="OperationSignatureType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>(Opt) Defines operation signature.
+
+This is required for operations that take part of requirement and provider dependency and connection.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Parameters" type="ParametersType" minOccurs="0">
