@@ -394,7 +394,7 @@ Depending on the process, the "designApproved" might come from separate auditing
 	</xs:complexType>
 	<xs:complexType name="DraftParametersType">
 		<xs:sequence>
-			<xs:element name="DraftParameter" type="DraftParameterType" maxOccurs="unbounded"/>
+			<xs:element name="DraftParameter" type="DraftParameterType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DraftExecutionType">
@@ -405,7 +405,7 @@ Depending on the process, the "designApproved" might come from separate auditing
 	</xs:complexType>
 	<xs:complexType name="DraftOperationType">
 		<xs:sequence>
-			<xs:element name="DraftParameters" type="DraftParametersType" minOccurs="0"/>
+			<xs:element name="DraftParameters" type="DraftParametersType"/>
 			<xs:element name="DraftExecution" type="DraftExecutionType"/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required">
