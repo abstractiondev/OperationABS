@@ -38,12 +38,13 @@
 	</xs:complexType>
 	<xs:complexType name="OperationAbstractionType">
 		<xs:sequence>
-			<xs:element name="Operations" type="OperationsType">
+			<xs:element name="Operations" type="OperationsType" minOccurs="0" maxOccurs="unbounded">
 				<xs:key name="PKOperation">
 					<xs:selector xpath="Operation"/>
 					<xs:field xpath="@name"/>
 				</xs:key>
 			</xs:element>
+			<xs:element name="Drafts" type="DraftsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="OperationExecuteType">
@@ -372,5 +373,57 @@ Depending on the process, the "designApproved" might come from separate auditing
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attributeGroup ref="DesignAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DraftOperationCallType">
+		<xs:attribute name="nameOfOperation" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+		<xs:attribute name="packageNamespace" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>(Opt) If not given, defaults to this package.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DraftMethodCallType">
+		<xs:attribute name="nameOfMethod" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="DraftParameterType">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="dataType" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="DraftParametersType">
+		<xs:sequence>
+			<xs:element name="DraftParameter" type="DraftParameterType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DraftExecutionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="DraftOperationCall" type="DraftOperationCallType"/>
+			<xs:element name="DraftMethodCall" type="DraftMethodCallType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DraftOperationType">
+		<xs:sequence>
+			<xs:element name="DraftParameters" type="DraftParametersType" minOccurs="0"/>
+			<xs:element name="DraftExecution" type="DraftExecutionType"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Operation name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+		<xs:attribute name="returnValueDataType" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>(Opt) If given, the return value data type of the operation.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DraftsType">
+		<xs:sequence>
+			<xs:element name="DraftOperation" type="DraftOperationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="packageNamespace" type="xs:string" use="required"/>
 	</xs:complexType>
 </xs:schema>
