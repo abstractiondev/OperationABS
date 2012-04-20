@@ -401,6 +401,8 @@ Depending on the process, the "designApproved" might come from separate auditing
 		<xs:choice maxOccurs="unbounded">
 			<xs:element name="DraftOperationCall" type="DraftOperationCallType"/>
 			<xs:element name="DraftMethodCall" type="DraftMethodCallType"/>
+			<xs:element name="IfCondition" type="IfConditionType"/>
+			<xs:element name="ForLoop" type="ForLoopType"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="DraftOperationType">
@@ -419,11 +421,53 @@ Depending on the process, the "designApproved" might come from separate auditing
 				<xs:documentation>(Opt) If given, the return value data type of the operation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="workEstimateInDays" type="xs:decimal">
+			<xs:annotation>
+				<xs:documentation>(Opt) Work estimate of the operation. 
+
+Generally used on higher level drafts that leave details out. Value is used to estimate the operation implementation required in days.
+
+NOTE! Using this value will override the total estimates of this operation, be careful not to leave it unnecessary in place when the operation is fully detailed.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="DraftsType">
 		<xs:sequence>
 			<xs:element name="DraftOperation" type="DraftOperationType" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="packageNamespace" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ElseType">
+		<xs:sequence>
+			<xs:element name="DraftExecution" type="DraftExecutionType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElseIfType">
+		<xs:sequence>
+			<xs:element name="DraftExecution" type="DraftExecutionType"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="IfConditionType">
+		<xs:sequence>
+			<xs:element name="DraftExecution" type="DraftExecutionType"/>
+			<xs:element name="ElseIf" type="ElseIfType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Else" type="ElseType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ForLoopType">
+		<xs:sequence>
+			<xs:element name="DraftExecution" type="DraftExecutionType"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="designDesc" type="xs:string" use="required"/>
+		<xs:attribute name="isParallelizable" type="xs:boolean" default="false">
+			<xs:annotation>
+				<xs:documentation>(Opt = false) Is the loop execution parallelizable by separating each iteration.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>
