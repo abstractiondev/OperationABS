@@ -25,15 +25,29 @@
 [System.Xml.Serialization.XmlRootAttribute("OperationAbstraction", Namespace="http://tempuri.org/Operation_v1_0.xsd", IsNullable=false)]
 public partial class OperationAbstractionType {
     
-    private OperationsType operationsField;
+    private OperationsType[] operationsField;
+    
+    private DraftsType[] draftsField;
     
     /// <remarks/>
-    public OperationsType Operations {
+    [System.Xml.Serialization.XmlElementAttribute("Operations")]
+    public OperationsType[] Operations {
         get {
             return this.operationsField;
         }
         set {
             this.operationsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("Drafts")]
+    public DraftsType[] Drafts {
+        get {
+            return this.draftsField;
+        }
+        set {
+            this.draftsField = value;
         }
     }
 }
@@ -251,6 +265,496 @@ public partial class UseCaseType {
         }
         set {
             this.locationUrlField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class ElseType {
+    
+    private object[] draftExecutionField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftMethodCall", typeof(DraftMethodCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
+    public object[] DraftExecution {
+        get {
+            return this.draftExecutionField;
+        }
+        set {
+            this.draftExecutionField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DraftMethodCallType {
+    
+    private string nameOfMethodField;
+    
+    private string designDescField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string nameOfMethod {
+        get {
+            return this.nameOfMethodField;
+        }
+        set {
+            this.nameOfMethodField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DraftOperationCallType {
+    
+    private string nameOfOperationField;
+    
+    private string designDescField;
+    
+    private string packageNamespaceField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string nameOfOperation {
+        get {
+            return this.nameOfOperationField;
+        }
+        set {
+            this.nameOfOperationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string packageNamespace {
+        get {
+            return this.packageNamespaceField;
+        }
+        set {
+            this.packageNamespaceField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class ForLoopType {
+    
+    private object[][] draftExecutionField;
+    
+    private string nameField;
+    
+    private string designDescField;
+    
+    private bool isParallelizableField;
+    
+    public ForLoopType() {
+        this.isParallelizableField = false;
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftMethodCall", typeof(DraftMethodCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
+    public object[][] DraftExecution {
+        get {
+            return this.draftExecutionField;
+        }
+        set {
+            this.draftExecutionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [System.ComponentModel.DefaultValueAttribute(false)]
+    public bool isParallelizable {
+        get {
+            return this.isParallelizableField;
+        }
+        set {
+            this.isParallelizableField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class IfConditionType {
+    
+    private object[][] draftExecutionField;
+    
+    private ElseIfType[] elseIfField;
+    
+    private ElseType elseField;
+    
+    private string nameField;
+    
+    private string designDescField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftMethodCall", typeof(DraftMethodCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
+    public object[][] DraftExecution {
+        get {
+            return this.draftExecutionField;
+        }
+        set {
+            this.draftExecutionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("ElseIf")]
+    public ElseIfType[] ElseIf {
+        get {
+            return this.elseIfField;
+        }
+        set {
+            this.elseIfField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public ElseType Else {
+        get {
+            return this.elseField;
+        }
+        set {
+            this.elseField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class ElseIfType {
+    
+    private object[] draftExecutionField;
+    
+    private string nameField;
+    
+    private string designDescField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftMethodCall", typeof(DraftMethodCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
+    public object[] DraftExecution {
+        get {
+            return this.draftExecutionField;
+        }
+        set {
+            this.draftExecutionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DraftParameterType {
+    
+    private string nameField;
+    
+    private string dataTypeField;
+    
+    private string designDescField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string dataType {
+        get {
+            return this.dataTypeField;
+        }
+        set {
+            this.dataTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DraftOperationType {
+    
+    private DraftParameterType[] draftParametersField;
+    
+    private object[] draftExecutionField;
+    
+    private string nameField;
+    
+    private string designDescField;
+    
+    private string returnValueDataTypeField;
+    
+    private decimal workEstimateInDaysField;
+    
+    private bool workEstimateInDaysFieldSpecified;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftParameter", IsNullable=false)]
+    public DraftParameterType[] DraftParameters {
+        get {
+            return this.draftParametersField;
+        }
+        set {
+            this.draftParametersField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftMethodCall", typeof(DraftMethodCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
+    public object[] DraftExecution {
+        get {
+            return this.draftExecutionField;
+        }
+        set {
+            this.draftExecutionField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string designDesc {
+        get {
+            return this.designDescField;
+        }
+        set {
+            this.designDescField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string returnValueDataType {
+        get {
+            return this.returnValueDataTypeField;
+        }
+        set {
+            this.returnValueDataTypeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public decimal workEstimateInDays {
+        get {
+            return this.workEstimateInDaysField;
+        }
+        set {
+            this.workEstimateInDaysField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool workEstimateInDaysSpecified {
+        get {
+            return this.workEstimateInDaysFieldSpecified;
+        }
+        set {
+            this.workEstimateInDaysFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
+public partial class DraftsType {
+    
+    private DraftOperationType[] draftOperationField;
+    
+    private string packageNamespaceField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("DraftOperation")]
+    public DraftOperationType[] DraftOperation {
+        get {
+            return this.draftOperationField;
+        }
+        set {
+            this.draftOperationField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string packageNamespace {
+        get {
+            return this.packageNamespaceField;
+        }
+        set {
+            this.packageNamespaceField = value;
         }
     }
 }
