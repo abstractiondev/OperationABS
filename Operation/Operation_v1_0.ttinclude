@@ -385,7 +385,7 @@ public partial class DraftOperationCallType {
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
 public partial class ForLoopType {
     
-    private object[][] draftExecutionField;
+    private object[] draftExecutionField;
     
     private string nameField;
     
@@ -402,7 +402,7 @@ public partial class ForLoopType {
     [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
     [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
     [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
-    public object[][] DraftExecution {
+    public object[] DraftExecution {
         get {
             return this.draftExecutionField;
         }
@@ -454,7 +454,7 @@ public partial class ForLoopType {
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/Operation_v1_0.xsd")]
 public partial class IfConditionType {
     
-    private object[][] draftExecutionField;
+    private object[] draftExecutionField;
     
     private ElseIfType[] elseIfField;
     
@@ -469,7 +469,7 @@ public partial class IfConditionType {
     [System.Xml.Serialization.XmlArrayItemAttribute("DraftOperationCall", typeof(DraftOperationCallType), IsNullable=false)]
     [System.Xml.Serialization.XmlArrayItemAttribute("ForLoop", typeof(ForLoopType), IsNullable=false)]
     [System.Xml.Serialization.XmlArrayItemAttribute("IfCondition", typeof(IfConditionType), IsNullable=false)]
-    public object[][] DraftExecution {
+    public object[] DraftExecution {
         get {
             return this.draftExecutionField;
         }

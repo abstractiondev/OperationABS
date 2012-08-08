@@ -451,7 +451,7 @@ NOTE! Using this value will override the total estimates of this operation, be c
 	</xs:complexType>
 	<xs:complexType name="IfConditionType">
 		<xs:sequence>
-			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ElseIf" type="ElseIfType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Else" type="ElseType" minOccurs="0"/>
 		</xs:sequence>
@@ -460,7 +460,7 @@ NOTE! Using this value will override the total estimates of this operation, be c
 	</xs:complexType>
 	<xs:complexType name="ForLoopType">
 		<xs:sequence>
-			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="designDesc" type="xs:string" use="required"/>
