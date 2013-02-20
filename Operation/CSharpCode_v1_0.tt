@@ -51,15 +51,19 @@
 	
 	void GenerateOperationAbstraction(OperationAbstractionType abstraction)
 	{
-		OperationsType operations = abstraction.Operations;
 		#>
 using System;
+using System.Collections.Specialized;
+using System.Drawing;
+using System.IO;
 
 		<#+
-		BeginNamespace(operations.codeNamespace);
-		foreach(var operation in operations.Operation)
-			GenerateOperation(operation);
-		EndBlock();
+		foreach(OperationsType operations in abstraction.Operations) {
+			BeginNamespace(operations.codeNamespace);
+			foreach(var operation in operations.Operation)
+				GenerateOperation(operation);
+			EndBlock();
+		}
 	}
 
 	#region Class Level Variable Block
@@ -376,7 +380,7 @@ using System;
 	OperationType GetOperation(string operationName, bool requireExisting = true)
 	{
 		OperationType operation =
-			CurrentAbstraction.Operations.Operation.FirstOrDefault(item => item.name == operationName);
+			CurrentAbstraction.Operations.SelectMany(opers => opers.Operation).FirstOrDefault(item => item.name == operationName);
 		if(requireExisting && operation == null)
 			throw new ArgumentException("Operation not found with requested name: " + operationName, "operationName");
 		return operation;
@@ -423,7 +427,7 @@ using System;
 		private static void PrepareParameters(<#= parameterClassName #> parameters)
 		{
 			<#+
-			foreach(object preparingItem in parameters.Items)
+			foreach(object preparingItem in parameters.Items ?? new object[0])
 				GeneratePreparingItem(preparingItem);
 			#>
 		}
