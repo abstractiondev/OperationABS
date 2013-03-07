@@ -23,7 +23,7 @@ namespace OperationABS.Operation
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+    #line 1 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class CSharpCode_v1_0 : CSharpCode_v1_0Base
     {
@@ -36,7 +36,7 @@ namespace OperationABS.Operation
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 18 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+            #line 18 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
    
 	// TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
 	GenerateOperationAbstraction(CurrentAbstraction);
@@ -62,7 +62,7 @@ namespace OperationABS.Operation
             }
         }
         
-        #line 22 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 22 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  
 
 	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
@@ -72,6 +72,7 @@ namespace OperationABS.Operation
 		{
 			OperationAbstractionType abs = LoadXml<OperationAbstractionType>(xmlFileName);
 			CurrentAbstraction = abs;
+			this.GenerationEnvironment.Clear();
 			string content = TransformText();
 			string outputFile = Path.GetFileNameWithoutExtension(xmlFileName) + ".designer.cs";
 			result.Add(Tuple.Create(outputFile, content));
@@ -100,7 +101,7 @@ namespace OperationABS.Operation
         #line default
         #line hidden
         
-        #line 54 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 55 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing System.Drawing;\r\nusin" +
         "g System.IO;\r\n\r\n\t\t");
 
@@ -108,7 +109,7 @@ this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing Syst
         #line default
         #line hidden
         
-        #line 60 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 61 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(OperationsType operations in abstraction.Operations) {
 			BeginNamespace(operations.codeNamespace);
@@ -137,28 +138,28 @@ this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing Syst
         #line default
         #line hidden
         
-        #line 83 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 84 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 85 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 86 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationName));
 
         
         #line default
         #line hidden
         
-        #line 85 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 86 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 87 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 88 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
@@ -169,14 +170,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 92 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 93 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 94 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 95 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		if(operation.OperationReturnValues != null)
 			GenerateVariableClassDefinition(returnValueClassName, operation.OperationReturnValues.ReturnValue);
@@ -196,56 +197,56 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 108 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 109 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueClassName));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" returnValue = ");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 111 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 112 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -370,91 +371,91 @@ this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 230 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 231 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 231 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 232 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueDefinitionString));
 
         
         #line default
         #line hidden
         
-        #line 231 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 232 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t{ // Local block to allow local naming\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 233 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 234 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationParameterCall));
 
         
         #line default
         #line hidden
         
-        #line 233 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 234 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 235 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationReturnValueAssignment));
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 235 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationName));
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 235 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(".Execute(");
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 235 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationCallParameters));
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 235 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 235 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 236 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 235 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 236 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 237 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 238 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 	}
@@ -473,49 +474,49 @@ this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
         #line default
         #line hidden
         
-        #line 250 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 251 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 251 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 252 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueOutputString));
 
         
         #line default
         #line hidden
         
-        #line 251 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 252 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 251 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 252 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 251 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 252 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 251 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 252 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 252 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 253 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -529,70 +530,70 @@ this.Write(");\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 260 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 261 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.dataType));
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.name));
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 261 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 262 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 262 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 263 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -622,69 +623,69 @@ this.Write(");\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 286 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 287 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic static ");
 
         
         #line default
         #line hidden
         
-        #line 287 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 288 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(resultsTypeNameString));
 
         
         #line default
         #line hidden
         
-        #line 287 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 288 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" Execute(");
 
         
         #line default
         #line hidden
         
-        #line 287 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 288 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parametersCallingString));
 
         
         #line default
         #line hidden
         
-        #line 287 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 288 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 289 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 290 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); 
         
         #line default
         #line hidden
         
-        #line 289 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 290 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 290 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 291 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
 
         
         #line default
         #line hidden
         
-        #line 290 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 291 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 291 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 292 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
@@ -697,14 +698,14 @@ this.Write("\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 298 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 299 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 300 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 301 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 
@@ -739,28 +740,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 329 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 330 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t        DateTime perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 330 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 331 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 330 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 331 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start = DateTime.Now;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 331 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 332 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -777,7 +778,7 @@ this.Write("_Start = DateTime.Now;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 342 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 343 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t// TODO: Add diagnostic message in addition to brute exception (at least as an" +
         " option)\r\n\t\t\tTimeSpan TotalTimeMs_");
 
@@ -785,56 +786,56 @@ this.Write("\t\t\t// TODO: Add diagnostic message in addition to brute exception
         #line default
         #line hidden
         
-        #line 344 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 345 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 344 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 345 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration = DateTime.Now - perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 344 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 345 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 344 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 345 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start;\r\n            if(TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 345 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 346 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 345 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 346 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds > ");
 
         
         #line default
         #line hidden
         
-        #line 345 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 346 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 345 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 346 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n            {\r\n                throw new TimeoutException(String.Format(\"Perfo" +
         "rmance not withing requirement: ");
 
@@ -842,49 +843,49 @@ this.Write(")\r\n            {\r\n                throw new TimeoutException(Str
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" requires ");
 
         
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ms, it took {0} ms\", TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 347 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 348 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 349 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 350 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -916,42 +917,42 @@ this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
         #line default
         #line hidden
         
-        #line 375 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 376 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 376 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 377 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(validationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 376 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 377 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 376 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 377 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 376 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 377 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 377 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 378 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -982,42 +983,42 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 402 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 403 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 403 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 404 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(modificationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 403 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 404 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 403 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 404 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 403 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 404 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 404 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 405 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		
 	}
@@ -1045,28 +1046,28 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 426 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 427 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tprivate static void PrepareParameters(");
 
         
         #line default
         #line hidden
         
-        #line 427 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterClassName));
 
         
         #line default
         #line hidden
         
-        #line 427 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 429 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 430 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object preparingItem in parameters.Items ?? new object[0])
 				GeneratePreparingItem(preparingItem);
@@ -1075,14 +1076,14 @@ this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 432 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 433 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 434 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 435 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1104,70 +1105,70 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 450 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 451 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessString));
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(dataType));
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(initialAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 451 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 452 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 452 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 453 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1182,28 +1183,28 @@ this.Write(";\r\n\t\t");
         #line default
         #line hidden
         
-        #line 461 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 462 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 462 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 463 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(className));
 
         
         #line default
         #line hidden
         
-        #line 462 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 463 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 464 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 465 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(var variable in variables)
 			GenerateVariableDefinition(variable, "public", null);
@@ -1212,14 +1213,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 467 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 468 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 469 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 470 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1237,7 +1238,7 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 2 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 2 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	enum AbstractionShareLevel
 	{
@@ -1350,28 +1351,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write("namespace ");
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
 
         
         #line default
         #line hidden
         
-        #line 109 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" { \r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 110 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 110 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	}
 
@@ -1381,14 +1382,14 @@ this.Write(" { \r\n\t\t");
         #line default
         #line hidden
         
-        #line 114 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" } ");
 
         
         #line default
         #line hidden
         
-        #line 114 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 
 	}
 
@@ -1408,13 +1409,13 @@ this.Write(" } ");
         #line default
         #line hidden
         
-        #line 1 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
+        #line 1 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
 
 public class AbstractionOptions { 
 //------------------------------------------------------------------------------
 // <auto-generated>
 //     This code was generated by a tool.
-//     Runtime Version:2.0.50727.6400
+//     Runtime Version:2.0.50727.5448
 //
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
@@ -1492,7 +1493,7 @@ public enum GeneralTypeShareLevel {
         #line default
         #line hidden
         
-        #line 1 "C:\Users\kalle\Work\abs\Caloom\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
+        #line 1 "C:\Users\kalle\Work\abs\TheBallOnAzure\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
 
 //------------------------------------------------------------------------------
 // <auto-generated>

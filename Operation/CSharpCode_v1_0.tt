@@ -28,6 +28,7 @@
 		{
 			OperationAbstractionType abs = LoadXml<OperationAbstractionType>(xmlFileName);
 			CurrentAbstraction = abs;
+			this.GenerationEnvironment.Clear();
 			string content = TransformText();
 			string outputFile = Path.GetFileNameWithoutExtension(xmlFileName) + ".designer.cs";
 			result.Add(Tuple.Create(outputFile, content));
