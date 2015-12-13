@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 2 sp1 (http://www.altova.com) by Kalle Launiala (Citrus Solutions Oy) -->
-<xs:schema xmlns="http://tempuri.org/Operation_v1_0.xsd" xmlns:mstns="http://tempuri.org/Operation_v1_0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/Operation_v1_0.xsd" elementFormDefault="qualified" id="Operation_v1_0">
+<xs:schema xmlns="http://tempuri.org/Operation_v1_0.xsd"
+	xmlns:mstns="http://tempuri.org/Operation_v1_0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://tempuri.org/Operation_v1_0.xsd" elementFormDefault="qualified"
+	id="Operation_v1_0">
 	<xs:element name="OperationAbstraction" type="OperationAbstractionType"/>
 	<xs:complexType name="ChosenOperationExecutionType">
 		<xs:sequence>
-			<xs:element name="TargetDefinition" type="VariableType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TargetDefinition" type="VariableType" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="OperationsToChooseFrom" type="OperationsToChooseFromType"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -20,13 +24,30 @@
 			<xs:element name="SequentialExecution" type="SequentialExecutionType"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="OperationExecuteType">
+		<xs:sequence>
+			<xs:element name="OperationSignature" type="OperationSignatureType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>(Opt) Defines operation signature.
+
+This is required for operations that take part of requirement and provider dependency and connection.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Parameter" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Target" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ReturnValue" type="VariableType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefinitionTypeAttributes"/>
+		<xs:attribute name="targetOperationName" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="DesignAttributes"/>
+	</xs:complexType>
 	<xs:complexType name="MethodExecuteType">
 		<xs:sequence>
 			<xs:element name="Parameter" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Target" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ReturnValue" type="VariableType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="DefinitionTypeAttributes"/>
 		<xs:attributeGroup ref="DesignAttributes"/>
 	</xs:complexType>
 	<xs:complexType name="ModificationType">
@@ -46,23 +67,6 @@
 			</xs:element>
 			<xs:element name="Drafts" type="DraftsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="OperationExecuteType">
-		<xs:sequence>
-			<xs:element name="OperationSignature" type="OperationSignatureType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>(Opt) Defines operation signature.
-
-This is required for operations that take part of requirement and provider dependency and connection.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Parameter" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Target" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ReturnValue" type="VariableType" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="name" type="xs:string" use="required"/>
-		<xs:attribute name="targetOperationName" type="xs:string" use="required"/>
-		<xs:attributeGroup ref="DesignAttributes"/>
 	</xs:complexType>
 	<xs:complexType name="OperationReturnValuesType">
 		<xs:sequence>
@@ -89,7 +93,8 @@ This is required for operations that take part of requirement and provider depen
 	</xs:complexType>
 	<xs:complexType name="OperationSignatureType">
 		<xs:sequence>
-			<xs:element name="Parameter" type="LogicalInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Parameter" type="LogicalInformationType" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element name="ReturnValue" type="LogicalInformationType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
@@ -131,7 +136,8 @@ This is required for operations that take part of requirement and provider depen
 				</xs:keyref>
 			</xs:element>
 			<xs:element name="Execution" type="ExecutionType"/>
-			<xs:element name="OperationReturnValues" type="mstns:OperationReturnValuesType" minOccurs="0">
+			<xs:element name="OperationReturnValues" type="mstns:OperationReturnValuesType"
+				minOccurs="0">
 				<xs:key name="PKOperationResult">
 					<xs:selector xpath="ReturnValue"/>
 					<xs:field xpath="@name"/>
@@ -309,7 +315,7 @@ The requirement definition is done separately, but some categories (such as Perf
 			<xs:element name="Parameter" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Target" type="TargetType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="DefinitionTypeAttributes"/>
 		<xs:attribute name="dataType" type="xs:string" use="required"/>
 		<xs:attributeGroup ref="DesignAttributes"/>
 	</xs:complexType>
@@ -356,6 +362,21 @@ Depending on the process, the "designApproved" might come from separate auditing
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:attributeGroup>
+	<xs:attributeGroup name="DefinitionTypeAttributes">
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute default="SyncOnly" name="asyncSupportMode">
+			<xs:annotation>
+				<xs:documentation>(Opt = SyncOnly) Async support mode, defining which implementations are required and whicb Execute versions are available. </xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="SyncOnly"/>
+					<xs:enumeration value="AsyncOnly"/>
+					<xs:enumeration value="Both"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
 	<xs:complexType name="AdvancedExecutionType">
 		<xs:choice maxOccurs="unbounded">
 			<xs:element name="Execution" type="SequentialExecutionType"/>
@@ -394,7 +415,8 @@ Depending on the process, the "designApproved" might come from separate auditing
 	</xs:complexType>
 	<xs:complexType name="DraftParametersType">
 		<xs:sequence>
-			<xs:element name="DraftParameter" type="DraftParameterType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DraftParameter" type="DraftParameterType" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DraftExecutionType">
@@ -460,7 +482,8 @@ NOTE! Using this value will override the total estimates of this operation, be c
 	</xs:complexType>
 	<xs:complexType name="ForLoopType">
 		<xs:sequence>
-			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DraftExecution" type="DraftExecutionType" minOccurs="0" maxOccurs="1"
+			/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required"/>
 		<xs:attribute name="designDesc" type="xs:string" use="required"/>

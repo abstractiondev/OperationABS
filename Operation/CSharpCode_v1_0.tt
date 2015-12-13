@@ -58,6 +58,7 @@ using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 
 		<#+
 		foreach(OperationsType operations in abstraction.Operations) {
@@ -112,6 +113,17 @@ using System.IO;
 		return returnValue;
 		<#+
 	}
+
+	bool isAnyItemAsyncModeSupporting(object [] executionItems, MethodExecuteTypeAsyncSupportMode asyncSupportMode)
+    {
+		OperationExecuteType[] operationExecs = executionItems.Where(item => item is OperationExecuteType).Cast<OperationExecuteType>().ToArray();
+		MethodExecuteType[] methodExecs = executionItems.Where(item => item is MethodExecuteType).Cast<MethodExecuteType>().ToArray();
+		TargetDefinitionType[] targetDefs = executionItems.Where(item => item is TargetDefinitionType).Cast<TargetDefinitionType>().ToArray();
+
+		return operationExecs.Any(item => item.asyncSupportMode == asyncSupportMode) 
+			|| methodExecs.Any(item => item.asyncSupportMode == asyncSupportMode) 
+			|| targetDefs.Any(item => item.asyncSupportMode == asyncSupportMode);
+    }
 	
 	void GenerateInternalReturnValueClasses(object[] executionItems)
 	{
@@ -195,8 +207,9 @@ using System.IO;
 		return implementationClassMethodName;
 	}
 	
-	void GenerateOperationExecuteItem(OperationExecuteType operationExec)
+	void GenerateOperationExecuteItem(OperationExecuteType operationExec, bool asyncVersion = false)
 	{
+		asyncVersion = asyncVersion && operationExec.asyncSupportMode != MethodExecuteTypeAsyncSupportMode.SyncOnly;
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			operationExec.Parameter, operationExec.Target);
 		string returnValueType = GetReturnValueType(operationExec.name, operationExec.ReturnValue, false);
@@ -229,19 +242,22 @@ using System.IO;
 		} 
 		string returnValueAssignmentString = operationExec.ReturnValue != null ? 
 			executionOutputName + " = " + execName + "_GetOutput(" + getOutputParameters + ");" : "";
+		string asyncNameSuffix = asyncVersion ? "Async" : "";
+		string awaitPrefix = asyncVersion ? " await ": "";
 		#>
 		<#= returnValueDefinitionString #>
 		{ // Local block to allow local naming
 			<#= targetOperationParameterCall #>
-			<#= targetOperationReturnValueAssignment #><#= targetOperationName #>.Execute(<#= operationCallParameters #>);
+			<#= targetOperationReturnValueAssignment #><#= awaitPrefix #><#= targetOperationName #>.Execute<#= asyncNameSuffix #>(<#= operationCallParameters #>);
 			<#= returnValueAssignmentString #>						
 		} // Local block closing
 		<#+
 
 	}
 	
-	void GenerateMethodExecuteItem(MethodExecuteType methodExec)
+	void GenerateMethodExecuteItem(MethodExecuteType methodExec, bool asyncVersion = false)
 	{
+		asyncVersion = asyncVersion && methodExec.asyncSupportMode != MethodExecuteTypeAsyncSupportMode.SyncOnly;
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			methodExec.Parameter, methodExec.Target);
 		string returnValueType = GetReturnValueType(methodExec.name, methodExec.ReturnValue, false);
@@ -249,32 +265,37 @@ using System.IO;
 		string returnValueOutputString = methodExec.ReturnValue != null ? 
 			returnValueType + " " + executionOutputName + " = " : "";
 		string execName = GetPrefixedMethodName("ExecuteMethod_" + methodExec.name);
+		string asyncNameSuffix = asyncVersion ? "Async" : "";
+		string awaitPrefix = asyncVersion ? " await ": "";
 		#>
-		<#= returnValueOutputString #><#= execName #>(<#= allParameters #>);		
+		<#= returnValueOutputString #><#= awaitPrefix #><#= execName #><#= asyncNameSuffix #>(<#= allParameters #>);		
 		<#+
 	}
 	
-	void GenerateTargetDefinitionItem(TargetDefinitionType targetDef)
+	void GenerateTargetDefinitionItem(TargetDefinitionType targetDef, bool asyncVersion = false)
 	{
+		asyncVersion = asyncVersion && targetDef.asyncSupportMode != MethodExecuteTypeAsyncSupportMode.SyncOnly;
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			targetDef.Parameter, targetDef.Target);
 		string execName = GetPrefixedMethodName("GetTarget_" + targetDef.name);
+		string asyncNameSuffix = asyncVersion ? "Async" : "";
+		string awaitPrefix = asyncVersion ? " await ": "";
 		#>
-		<#= targetDef.dataType #> <#= targetDef.name #> = <#= execName #>(<#= allParameters #>);	
+		<#= targetDef.dataType #> <#= targetDef.name #> = <#= awaitPrefix #><#= execName #><#= asyncNameSuffix #>(<#= allParameters #>);	
 		<#+
 	}
 	
-	void GenerateExecutionItem(object executionItem)
+	void GenerateExecutionItem(object executionItem, bool asyncVersion = false)
 	{
 		OperationExecuteType operationExec = executionItem as OperationExecuteType;
 		MethodExecuteType methodExec = executionItem as MethodExecuteType;
 		TargetDefinitionType targetDef = executionItem as TargetDefinitionType;
 		if(operationExec != null)
-			GenerateOperationExecuteItem(operationExec);
+			GenerateOperationExecuteItem(operationExec, asyncVersion);
 		else if(methodExec != null)
-			GenerateMethodExecuteItem(methodExec);
+			GenerateMethodExecuteItem(methodExec, asyncVersion);
 		else if(targetDef != null)
-			GenerateTargetDefinitionItem(targetDef);
+			GenerateTargetDefinitionItem(targetDef, asyncVersion);
 		else
 			throw new NotSupportedException("Execution item type: " + executionItem.GetType().Name);
 	}
@@ -285,6 +306,11 @@ using System.IO;
 		string parametersCallingString = operation.Parameters != null ?  operationName + "Parameters parameters" : "";
 		string resultsTypeNameString = operation.OperationReturnValues != null ? operationName + "ReturnValue" : "void";
 		string parameterPreparationCallString = operation.Parameters != null ? "PrepareParameters(parameters);" : ""; 
+		bool supportsAsync = isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.AsyncOnly) ||
+			isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.Both);
+		bool supportsSync = isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.SyncOnly) ||
+			isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.Both);
+		if(supportsSync) {
 		#>
 		public static <#= resultsTypeNameString #> Execute(<#= parametersCallingString #>)
 		{
@@ -300,6 +326,25 @@ using System.IO;
 			#>
 		}
 		<#+
+		}
+		if(supportsAsync) {
+			string awaitableReturnValue = resultsTypeNameString == "void" ? "Task" : "Task<" + resultsTypeNameString + ">";
+		#>
+		public static async <#= awaitableReturnValue #> ExecuteAsync(<#= parametersCallingString #>)
+		{
+			<#+ GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); #>
+			<#= parameterPreparationCallString #>
+			<#+
+			foreach(object executionItem in operation.Execution.SequentialExecution)
+			{
+				GenerateExecutionItem(executionItem, true);
+			}
+			GeneratePerformanceRequirementAssertion(GetPerformanceRequirements(operation));
+			GenerateReturnValue(operation.OperationReturnValues);
+			#>
+		}
+		<#+
+        }
 	}
 
 	RequirementType[] GetPerformanceRequirements(OperationType operation)
