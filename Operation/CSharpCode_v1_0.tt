@@ -124,7 +124,7 @@ using System.Threading.Tasks;
 			|| methodExecs.Any(item => item.asyncSupportMode == asyncSupportMode) 
 			|| targetDefs.Any(item => item.asyncSupportMode == asyncSupportMode);
     }
-	
+
 	void GenerateInternalReturnValueClasses(object[] executionItems)
 	{
 		foreach(object executionItem in executionItems)
@@ -308,8 +308,10 @@ using System.Threading.Tasks;
 		string parameterPreparationCallString = operation.Parameters != null ? "PrepareParameters(parameters);" : ""; 
 		bool supportsAsync = isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.AsyncOnly) ||
 			isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.Both);
+		bool supportsOnlyAsync = isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.AsyncOnly);
 		bool supportsSync = isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.SyncOnly) ||
 			isAnyItemAsyncModeSupporting(operation.Execution.SequentialExecution, MethodExecuteTypeAsyncSupportMode.Both);
+		supportsSync = supportsSync && !supportsOnlyAsync;			
 		if(supportsSync) {
 		#>
 		public static <#= resultsTypeNameString #> Execute(<#= parametersCallingString #>)
