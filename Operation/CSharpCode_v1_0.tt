@@ -61,9 +61,9 @@ using System.IO;
 using System.Threading.Tasks;
 
 		<#+
-		foreach(OperationsType operations in abstraction.Operations) {
+		foreach(OperationsType operations in abstraction.Operations ?? new OperationsType[0]) {
 			BeginNamespace(operations.codeNamespace);
-			foreach(var operation in operations.Operation)
+			foreach(var operation in operations.Operation ?? new OperationType[0])
 				GenerateOperation(operation);
 			EndBlock();
 		}
@@ -90,7 +90,7 @@ using System.Threading.Tasks;
 		<#+
 
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
-		GenerateInternalReturnValueClasses(operation.Execution.SequentialExecution);
+		GenerateInternalReturnValueClasses(operation.Execution?.SequentialExecution);
 		GenerateExecution(operation);
 		#>
 		}
@@ -127,7 +127,7 @@ using System.Threading.Tasks;
 
 	void GenerateInternalReturnValueClasses(object[] executionItems)
 	{
-		foreach(object executionItem in executionItems)
+		foreach(object executionItem in executionItems ?? new object[0])
 			GenerateReturnValueClassDefinition(executionItem);
 	}
 	
@@ -302,6 +302,8 @@ using System.Threading.Tasks;
 	
 	void GenerateExecution(OperationType operation)
 	{
+		if(operation.Execution?.SequentialExecution == null)
+			return;
 		string operationName = operation.name;
 		string parametersCallingString = operation.Parameters != null ?  operationName + "Parameters parameters" : "";
 		string resultsTypeNameString = operation.OperationReturnValues != null ? operationName + "ReturnValue" : "void";
