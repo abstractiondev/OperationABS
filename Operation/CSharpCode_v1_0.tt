@@ -274,6 +274,8 @@ using System.Threading.Tasks;
 	
 	void GenerateTargetDefinitionItem(TargetDefinitionType targetDef, bool asyncVersion = false)
 	{
+		if(targetDef.name == null)
+			throw new ArgumentNullException("targetDef.name", "Target name must be given");
 		asyncVersion = asyncVersion && targetDef.asyncSupportMode != MethodExecuteTypeAsyncSupportMode.SyncOnly;
 		string allParameters = GetParametersAndTargetsAsAllParams("parameters.",
 			targetDef.Parameter, targetDef.Target);
