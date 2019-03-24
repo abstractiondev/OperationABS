@@ -23,7 +23,7 @@ namespace OperationABS.Operation
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+    #line 1 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class CSharpCode_v1_0 : CSharpCode_v1_0Base
     {
@@ -36,7 +36,7 @@ namespace OperationABS.Operation
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 18 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+            #line 18 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
    
 	// TransformGenerator<OperationAbstractionType>(GenerateRoot, ".designer.cs");	
 	GenerateOperationAbstraction(CurrentAbstraction);
@@ -62,7 +62,7 @@ namespace OperationABS.Operation
             }
         }
         
-        #line 22 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 22 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  
 
 	public Tuple<string, string>[] GetGeneratorContent(params string[] xmlFileNames)
@@ -101,7 +101,7 @@ namespace OperationABS.Operation
         #line default
         #line hidden
         
-        #line 55 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 55 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing System.Collections.Ge" +
         "neric;\r\nusing System.IO;\r\nusing System.Threading.Tasks;\r\n\r\n\t\t");
 
@@ -109,7 +109,7 @@ this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing Syst
         #line default
         #line hidden
         
-        #line 62 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 62 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(OperationsType operations in abstraction.Operations ?? new OperationsType[0]) {
 			BeginNamespace(operations.codeNamespace);
@@ -138,28 +138,28 @@ this.Write("using System;\r\nusing System.Collections.Specialized;\r\nusing Syst
         #line default
         #line hidden
         
-        #line 85 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 85 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 87 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 87 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationName));
 
         
         #line default
         #line hidden
         
-        #line 87 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 87 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 89 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 89 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 		GenerateParameterPreparation(parameterClassName, operation.Parameters);
@@ -170,14 +170,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 94 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 94 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 96 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 96 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		if(operation.OperationReturnValues != null)
 			GenerateVariableClassDefinition(returnValueClassName, operation.OperationReturnValues.ReturnValue);
@@ -197,56 +197,56 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 110 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 110 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueClassName));
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" returnValue = ");
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 111 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 111 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 113 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 113 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 
@@ -385,112 +385,112 @@ this.Write(");\r\n\t\treturn returnValue;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 246 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 246 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 247 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueDefinitionString));
 
         
         #line default
         #line hidden
         
-        #line 247 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 247 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t{ // Local block to allow local naming\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 249 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 249 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationParameterCall));
 
         
         #line default
         #line hidden
         
-        #line 249 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 249 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationReturnValueAssignment));
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(awaitPrefix));
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetOperationName));
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(".Execute");
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(asyncNameSuffix));
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(operationCallParameters));
 
         
         #line default
         #line hidden
         
-        #line 250 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 250 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 251 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 251 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 251 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 251 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 253 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 253 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 
 	}
@@ -512,63 +512,63 @@ this.Write("\t\t\t\t\t\t\r\n\t\t} // Local block closing\r\n\t\t");
         #line default
         #line hidden
         
-        #line 269 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 269 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(returnValueOutputString));
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(awaitPrefix));
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(asyncNameSuffix));
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 270 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 270 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 271 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 271 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -587,84 +587,84 @@ this.Write(");\t\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 284 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 284 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.dataType));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(targetDef.name));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" = ");
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(awaitPrefix));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(execName));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(asyncNameSuffix));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(allParameters));
 
         
         #line default
         #line hidden
         
-        #line 285 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 285 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\t\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 286 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 286 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -703,69 +703,69 @@ this.Write(");\t\r\n\t\t");
         #line default
         #line hidden
         
-        #line 319 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 319 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic static ");
 
         
         #line default
         #line hidden
         
-        #line 320 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 320 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(resultsTypeNameString));
 
         
         #line default
         #line hidden
         
-        #line 320 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 320 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" Execute(");
 
         
         #line default
         #line hidden
         
-        #line 320 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 320 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parametersCallingString));
 
         
         #line default
         #line hidden
         
-        #line 320 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 320 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 322 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 322 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); 
         
         #line default
         #line hidden
         
-        #line 322 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 322 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 323 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 323 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
 
         
         #line default
         #line hidden
         
-        #line 323 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 323 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 324 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 324 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
@@ -778,14 +778,14 @@ this.Write("\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 331 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 331 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 333 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 333 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 		if(supportsAsync) {
@@ -795,69 +795,69 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 337 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 337 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic static async ");
 
         
         #line default
         #line hidden
         
-        #line 338 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 338 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(awaitableReturnValue));
 
         
         #line default
         #line hidden
         
-        #line 338 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 338 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ExecuteAsync(");
 
         
         #line default
         #line hidden
         
-        #line 338 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 338 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parametersCallingString));
 
         
         #line default
         #line hidden
         
-        #line 338 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 338 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 340 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
  GeneratePerformanceRequirementInitialization(GetPerformanceRequirements(operation)); 
         
         #line default
         #line hidden
         
-        #line 340 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 340 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 341 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterPreparationCallString));
 
         
         #line default
         #line hidden
         
-        #line 341 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 341 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 342 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 342 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object executionItem in operation.Execution.SequentialExecution)
 			{
@@ -870,14 +870,14 @@ this.Write("\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 349 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 349 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 351 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 351 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
         }
 	}
@@ -913,28 +913,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 381 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 381 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t        DateTime perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 382 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 382 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 382 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 382 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start = DateTime.Now;\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 383 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 383 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -951,7 +951,7 @@ this.Write("_Start = DateTime.Now;\r\n\t\t");
         #line default
         #line hidden
         
-        #line 394 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 394 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t\t// TODO: Add diagnostic message in addition to brute exception (at least as an" +
         " option)\r\n\t\t\tTimeSpan TotalTimeMs_");
 
@@ -959,56 +959,56 @@ this.Write("\t\t\t// TODO: Add diagnostic message in addition to brute exception
         #line default
         #line hidden
         
-        #line 396 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 396 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 396 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 396 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration = DateTime.Now - perfMonitorTotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 396 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 396 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 396 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 396 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_Start;\r\n            if(TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 397 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 397 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 397 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 397 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds > ");
 
         
         #line default
         #line hidden
         
-        #line 397 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 397 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 397 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 397 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(")\r\n            {\r\n                throw new TimeoutException(String.Format(\"Perfo" +
         "rmance not withing requirement: ");
 
@@ -1016,49 +1016,49 @@ this.Write(")\r\n            {\r\n                throw new TimeoutException(Str
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" requires ");
 
         
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(perfReq.maxTotalTimeMs));
 
         
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ms, it took {0} ms\", TotalTimeMs_");
 
         
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(reqName));
 
         
         #line default
         #line hidden
         
-        #line 399 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 399 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 401 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 401 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		}
 	}
@@ -1090,42 +1090,42 @@ this.Write("_duration.TotalMilliseconds));\r\n            }\r\n\t\t");
         #line default
         #line hidden
         
-        #line 427 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 427 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 428 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(validationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 428 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 428 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 428 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 428 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 429 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 429 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1156,42 +1156,42 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 454 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 454 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 455 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 455 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(modificationMethodName));
 
         
         #line default
         #line hidden
         
-        #line 455 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 455 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("(");
 
         
         #line default
         #line hidden
         
-        #line 455 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 455 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(callingParametersString));
 
         
         #line default
         #line hidden
         
-        #line 455 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 455 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(");\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 456 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 456 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		
 	}
@@ -1219,28 +1219,28 @@ this.Write(");\r\n\t\t");
         #line default
         #line hidden
         
-        #line 478 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 478 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tprivate static void PrepareParameters(");
 
         
         #line default
         #line hidden
         
-        #line 479 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 479 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(parameterClassName));
 
         
         #line default
         #line hidden
         
-        #line 479 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 479 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
 
         
         #line default
         #line hidden
         
-        #line 481 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 481 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 			foreach(object preparingItem in parameters.Items ?? new object[0])
 				GeneratePreparingItem(preparingItem);
@@ -1249,14 +1249,14 @@ this.Write(" parameters)\r\n\t\t{\r\n\t\t\t");
         #line default
         #line hidden
         
-        #line 484 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 484 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 486 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 486 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1278,70 +1278,70 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 502 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 502 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t");
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(accessString));
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(dataType));
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(name));
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(initialAssignmentString));
 
         
         #line default
         #line hidden
         
-        #line 503 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 503 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(";\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 504 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 504 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1356,28 +1356,28 @@ this.Write(";\r\n\t\t");
         #line default
         #line hidden
         
-        #line 513 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 513 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\tpublic class ");
 
         
         #line default
         #line hidden
         
-        #line 514 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 514 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(className));
 
         
         #line default
         #line hidden
         
-        #line 514 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 514 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write(" \r\n\t\t{\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 516 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 516 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 		foreach(var variable in variables)
 			GenerateVariableDefinition(variable, "public", null);
@@ -1386,14 +1386,14 @@ this.Write(" \r\n\t\t{\r\n\t\t");
         #line default
         #line hidden
         
-        #line 519 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 519 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 this.Write("\t\t}\r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 521 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
+        #line 521 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\CSharpCode_v1_0.tt"
 
 	}
 	
@@ -1411,7 +1411,7 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 2 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 2 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	enum AbstractionShareLevel
 	{
@@ -1524,28 +1524,28 @@ this.Write("\t\t}\r\n\t\t");
         #line default
         #line hidden
         
-        #line 109 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write("namespace ");
 
         
         #line default
         #line hidden
         
-        #line 109 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
 
         
         #line default
         #line hidden
         
-        #line 109 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 109 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" { \r\n\t\t");
 
         
         #line default
         #line hidden
         
-        #line 110 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 110 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
  
 	}
 
@@ -1555,14 +1555,14 @@ this.Write(" { \r\n\t\t");
         #line default
         #line hidden
         
-        #line 114 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 this.Write(" } ");
 
         
         #line default
         #line hidden
         
-        #line 114 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
+        #line 114 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\CommonCodeblocks.ttinclude"
 
 	}
 
@@ -1582,13 +1582,13 @@ this.Write(" } ");
         #line default
         #line hidden
         
-        #line 1 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
+        #line 1 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\..\..\abscommon\CommonInclude\Common\AbstractionOptions_namespace.ttinclude"
 
 public class AbstractionOptions { 
 //------------------------------------------------------------------------------
 // <auto-generated>
 //     This code was generated by a tool.
-//     Runtime Version:2.0.50727.8009
+//     Runtime Version:2.0.50727.8937
 //
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
@@ -1666,12 +1666,12 @@ public enum GeneralTypeShareLevel {
         #line default
         #line hidden
         
-        #line 1 "D:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
+        #line 1 "S:\UserData\Kalle\work\abs\TheBallPlatform\Abstractions\OperationABS\Operation\Operation_v1_0.ttinclude"
 
 //------------------------------------------------------------------------------
 // <auto-generated>
 //     This code was generated by a tool.
-//     Runtime Version:2.0.50727.8669
+//     Runtime Version:2.0.50727.8937
 //
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
